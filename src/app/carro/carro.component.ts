@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarroComponent implements OnInit {
   
-  title = 'Carro';
+  public title = 'Carro';
+  public carroSelecionado:string | undefined; //criar função para selecionar carro
   
   public carro = [
     {id: 1,marca:'peugeot', modelo:'208 griff', placa:'BEP5G03', ano:'2019'},
@@ -17,6 +18,14 @@ export class CarroComponent implements OnInit {
     {id: 5,marca:'Volkswagen', modelo:'T-Cross', placa:'WQS3D25', ano:'2020'},
   ];
   
+  carroSelect(carro:any)
+  {
+    this.carroSelecionado = carro.marca; //criar função para selecionar carro
+  }
+  voltar() 
+  {
+    this.carroSelecionado = ''; //criar função para botão voltar
+  }
   constructor() { }
 
   ngOnInit(): void {

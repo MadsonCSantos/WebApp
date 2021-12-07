@@ -1,6 +1,18 @@
 <app-titulo [titulo]="title"></app-titulo><!--app titulo Está classe vai carregar os titulos na view-->
 <!--*ngFor vai carregar todas as variaveis dntro do array carro-->
-<table class="table">
+
+<div *ngIf="carroSelecionado"><!--Cria um recurso de animação de seleção de intem-->
+    Carro selecionado : {{carroSelecionado}}
+    <br>
+    <button class="btn btn-default"(click)="voltar"><!--recebe função de botão voltar-->
+        Voltar
+    </button>
+</div>
+<div *ngIf="!carroSelecionado">
+    Nenhum veículo selecionado 
+</div>
+
+<table class="table table-hover">
     <thead class="thead-light">
         <tr>
             <th scope="col">Id</th>
@@ -11,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let Carro of carro" >
+        <tr *ngFor="let Carro of carro" style="cursor: pointer;" >
             <th scope="row">{{Carro.id}}</th>
             <td>{{Carro.marca}}</td>
             <td>{{Carro.modelo}}</td>
