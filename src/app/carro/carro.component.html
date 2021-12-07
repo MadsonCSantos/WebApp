@@ -1,0 +1,22 @@
+<app-titulo [titulo]="title"></app-titulo><!--app titulo Está classe vai carregar os titulos na view-->
+<!--*ngFor vai carregar todas as variaveis dntro do array carro-->
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Placa</th>
+            <th scope="col">Ano</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let Carro of carro" >
+            <th scope="row">{{Carro.id}}</th>
+            <td>{{Carro.marca}}</td>
+            <td>{{Carro.modelo}}</td>
+            <td>{{Carro.placa}}</td>
+            <td>{{Carro.ano}}</td>
+        </tr>
+    </tbody>
+</table>
