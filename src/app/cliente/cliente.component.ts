@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CarroComponent } from '../carro/carro.component';
+import { Cliente } from '../models/cliente';
+
+
 
 @Component({
   selector: 'app-cliente',
@@ -7,8 +9,10 @@ import { CarroComponent } from '../carro/carro.component';
   styleUrls: ['./cliente.component.css']
 })
 export class ClienteComponent implements OnInit {
-  
+
   title = 'Cliente';
+
+  public clienteSelecionado: Cliente;
 
   public cliente = [
     {id: 1,nome:'Madson Santos ', telefone:'3254178445', email:'madsonwagner@hotmail.com'},
@@ -21,6 +25,15 @@ export class ClienteComponent implements OnInit {
     {id: 8,nome:'Janaina Lopes ', telefone:'3214274932', email:'peganobausaes@hgmail.com'},
     {id: 9,nome:'Lucrecia dile ', telefone:'3292547132', email:'masoqevsoais@hotmail.com'},
   ];
+
+  clienteSelect(cliente:Cliente)
+  {
+    this.clienteSelecionado = cliente;
+  }  
+  voltar() 
+  {
+    this.clienteSelecionado = ''; //criar função para botão voltar
+  }
   constructor() { }
 
   ngOnInit(): void {

@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CarroComponent implements OnInit {
   
   public title = 'Carro';
-  public carroSelecionado:string | undefined; //criar função para selecionar carro
+  public carroSelecionado: string | undefined; //criar função para selecionar carro
   
   public carro = [
     {id: 1,marca:'peugeot', modelo:'208 griff', placa:'BEP5G03', ano:'2019'},
