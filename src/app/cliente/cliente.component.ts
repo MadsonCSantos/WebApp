@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Cliente } from '../models/cliente';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 
 
@@ -11,8 +11,12 @@ import { Cliente } from '../models/cliente';
 export class ClienteComponent implements OnInit {
 
   title = 'Cliente';
-
-  public clienteSelecionado: Cliente;
+  public clienteForm: FormGroup | undefined;
+  public textSimples: string | undefined;
+  public clienteSelecionado: string | undefined;
+  public clienteNome:string | undefined;
+  public clienteTelefone: string | undefined;
+  public clienteEmail: string | undefined; 
 
   public cliente = [
     {id: 1,nome:'Madson Santos ', telefone:'3254178445', email:'madsonwagner@hotmail.com'},
@@ -25,18 +29,36 @@ export class ClienteComponent implements OnInit {
     {id: 8,nome:'Janaina Lopes ', telefone:'3214274932', email:'peganobausaes@hgmail.com'},
     {id: 9,nome:'Lucrecia dile ', telefone:'3292547132', email:'masoqevsoais@hotmail.com'},
   ];
-
-  clienteSelect(cliente:Cliente)
+  constructor(private fb: FormBuilder) 
   {
-    this.clienteSelecionado = cliente;
-  }  
+    this.criarForm();
+  }
+
+  ngOnInit(): void 
+  {
+    
+  }
+
+  criarForm()
+  {
+    this.clienteForm = this.fb.group({
+      nome:'',
+      telefone: '',
+      email:''
+    });
+
+  }
+  clienteSelect(cliente:any)
+  {
+    this.clienteSelecionado = cliente.nome;
+    this.clienteNome = cliente.nome;
+    this.clienteTelefone = cliente.telefone;
+    this.clienteEmail = cliente.email;
+  } 
   voltar() 
   {
     this.clienteSelecionado = ''; //criar função para botão voltar
   }
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  
 
 }
